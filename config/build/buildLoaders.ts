@@ -32,3 +32,4 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
         cssLoader,
     ]
 }
+
