@@ -9,5 +9,7 @@
   "toggle": "переключить",
   "Short Language": "Ru",
   "Login": "Login",
-  "Modal": "Modal"
+  "Modal": "Modal",
+  "increment": "increment",
+  "decrement": "decrement"
 }
