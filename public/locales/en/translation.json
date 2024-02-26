@@ -11,5 +11,7 @@
   "Login": "Login",
   "Modal": "Modal",
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "Password": "Password",
+  "Username": "Username"
 }
