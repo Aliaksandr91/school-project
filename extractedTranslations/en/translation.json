@@ -13,5 +13,7 @@
   "decrement": "decrement",
   "increment": "increment",
   "throw error": "throw error",
-  "toggle": "toggle"
+  "toggle": "toggle",
+  "Form Auth": "Form Auth",
+  "Auth Form ": "Auth Form "
 }

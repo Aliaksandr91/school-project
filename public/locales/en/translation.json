@@ -13,5 +13,7 @@
   "increment": "increment",
   "decrement": "decrement",
   "Password": "Password",
-  "Username": "Username"
+  "Username": "Username",
+  "Form Auth": "Form Auth",
+  "Auth Form ": "Auth Form "
 }
