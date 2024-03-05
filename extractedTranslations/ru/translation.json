@@ -1,7 +1,10 @@
 {
   "About us": "About us",
+  "Auth Form ": "Auth Form ",
+  "Form Auth": "Form Auth",
   "Language": "Language",
   "Login": "Login",
+  "Logout": "Logout",
   "Main page": "Main page",
   "Modal": "Modal",
   "Page not found": "Страница не найдена",
@@ -13,7 +16,5 @@
   "decrement": "decrement",
   "increment": "increment",
   "throw error": "throw error",
-  "toggle": "toggle",
-  "Form Auth": "Form Auth",
-  "Auth Form ": "Auth Form "
+  "toggle": "toggle"
 }
