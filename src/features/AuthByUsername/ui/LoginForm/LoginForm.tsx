@@ -2,10 +2,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { memo, useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { ReduxStoreWithManager } from 'app/providers/StoreProvider/config/StateSchema';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
@@ -13,7 +12,7 @@ import cls from './LoginForm.module.scss';
 import { getLoginUserName } from '../../model/selectors/getLoginUserName/getLoginUserName';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
-import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 
 export interface LoginFormProps {
     className?: string;
@@ -29,7 +28,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     const username = useSelector(getLoginUserName);
     const password = useSelector(getLoginPassword);
     const error = useSelector(getLoginError);
-    const isLoading = useSelector(getLoginLoading);
+    const isLoading = useSelector(getLoginIsLoading);
 
     const onChangeUserName = useCallback((value:string) => {
         dispatch(loginActions.setUserName(value));
