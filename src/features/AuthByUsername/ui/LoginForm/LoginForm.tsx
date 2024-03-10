@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
+import { loginByUsername } from '../../model/services/loginByUserName/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 import { getLoginUserName } from '../../model/selectors/getLoginUserName/getLoginUserName';
@@ -39,7 +39,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     }, [dispatch]);
 
     const onLoginClick = useCallback(() => {
-        dispatch(loginByUserName({ username, password }));
+        dispatch(loginByUsername({ username, password }));
     }, [dispatch, password, username]);
 
     return (
