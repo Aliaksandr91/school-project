@@ -8,9 +8,11 @@ import { userActions } from 'entities/User';
 
 function App() {
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(userActions.initAuthData());
     }, [dispatch]);
+
     return (
         <div className={classNames('app', {}, [])}>
             <Suspense fallback="">
