@@ -2,5 +2,11 @@
   "Profile": "Profile",
   "Edit": "Edit",
   "First Name": "First Name",
-  "Last Name": "Last Name"
+  "Last Name": "Last Name",
+  "error": "error",
+  "Please refresh the page": "Please refresh the page",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "Age": "Age",
+  "City": "City"
 }
