@@ -15,5 +15,7 @@
   "Password": "Password",
   "Username": "Username",
   "Form Auth": "Form Auth",
-  "Auth Form ": "Auth Form "
+  "Auth Form ": "Auth Form ",
+  "Currency": "Currency",
+  "Country": "Country"
 }
