@@ -45,7 +45,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_AGE]: t('Incorrect age'),
     };
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeFirstname = useCallback((value?:string) => {
