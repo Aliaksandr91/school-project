@@ -8,9 +8,7 @@ interface ArticlesPageProps {
 const ArticlesPage = (props:ArticlesPageProps) => {
     const { className } = props;
     return (
-        <div className={classNames(cls.ArticlesPage, {}, [className])}>
-            ART PAGE
-        </div>
+        <div className={classNames(cls.ArticlesPage, {}, [className])} />
     );
 };
 export default memo(ArticlesPage);
