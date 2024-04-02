@@ -30,12 +30,20 @@ const ArticleDetailsPage = (props:ArticleDetailsPageProps) => {
                     {
                         id: '1',
                         text: 'comment 1',
-                        user: { id: '1', username: 'Alex' },
+                        user: {
+                            id: '1',
+                            username: 'Alex',
+                            avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
+                        },
                     },
                     {
                         id: '2',
                         text: 'comment 2',
-                        user: { id: '2', username: 'Alex 2' },
+                        user: {
+                            id: '2',
+                            username: 'Alex 2',
+                            avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
+                        },
                     },
                 ]}
             />
