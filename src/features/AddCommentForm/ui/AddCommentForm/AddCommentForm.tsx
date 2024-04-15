@@ -6,6 +6,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { sendComment } from 'features/AddCommentForm/model/services/sendComment/sendComment';
 import { addCommentFormReducer, addCommentFormActions } from '../../model/slices/addCommentFormSlice';
 import {
     getAddCommentFormError,
@@ -29,19 +30,27 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     const error = useSelector(getAddCommentFormError);
     const dispatch = useAppDispatch();
 
-    const onCommentTextChange = useCallback((value:string) => {
+    const onCommentTextChange = useCallback((value: string) => {
         dispatch(addCommentFormActions.setText(value));
+    }, [dispatch]);
+
+    const onSendComment = useCallback(() => {
+        dispatch(sendComment);
     }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.AddCommentForm, {}, [className])}>
                 <Input
+                    className={cls.input}
                     placeholder={t('Comment')}
                     value={text}
                     onChange={onCommentTextChange}
                 />
-                <Button theme={ButtonTheme.OUTLINE}>
+                <Button
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={onSendComment}
+                >
                     {t('Send')}
                 </Button>
             </div>
