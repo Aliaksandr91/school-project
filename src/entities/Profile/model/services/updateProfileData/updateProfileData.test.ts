@@ -7,15 +7,16 @@ import { updateProfileData } from './updateProfileData';
 
 const data = {
     username: 'admin',
-    age: 32,
-    country: Country.Poland,
-    lastname: 'Horbach',
-    first: 'Aliaksandr',
-    city: 'Wroclaw',
-    currency: Currency.PLN,
+    age: 22,
+    country: Country.Ukraine,
+    lastname: 'ulbi tv',
+    first: 'asd',
+    city: 'asf',
+    currency: Currency.USD,
+    id: '1',
 };
 
-describe('updateProfileData', () => {
+describe('updateProfileData.test', () => {
     test('success', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {

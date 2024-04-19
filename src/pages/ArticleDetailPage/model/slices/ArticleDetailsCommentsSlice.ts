@@ -5,7 +5,6 @@ import {
 
 import { Comment } from 'entities/Comment';
 import { StateSchema } from 'app/providers/StoreProvider';
-
 import {
     fetchCommentsByArticleId,
 } from 'pages/ArticleDetailPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
