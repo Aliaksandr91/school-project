@@ -5,6 +5,7 @@
   "Article not found": "Article not found",
   "Auth Form ": "Auth Form ",
   "Avatar": "Avatar",
+  "Back": "Back",
   "Cancel": "Cancel",
   "City": "City",
   "Comment": "Comment",
@@ -30,6 +31,13 @@
   "Password": "Password",
   "Please refresh the page": "Please refresh the page",
   "Profile": "Profile",
+  "Read more": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "Refresh page": "Refresh page",
   "Save": "Save",
   "Send": "Send",
