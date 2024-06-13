@@ -4,12 +4,13 @@ import { Comment } from 'entities/Comment';
 import { Article } from 'entities/Article';
 import { getArticlesPageLimit } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 
-interface fetchArticlesListProps {
-    page?: number
+interface FetchArticlesListProps {
+    page?: number;
 }
+
 export const fetchArticlesList = createAsyncThunk<
     Article[],
-    fetchArticlesListProps,
+    FetchArticlesListProps,
     ThunkConfig<string>
 >(
     'articlesPage/fetchArticlesList',
@@ -17,12 +18,13 @@ export const fetchArticlesList = createAsyncThunk<
         const { extra, rejectWithValue, getState } = thunkApi;
         const { page = 1 } = props;
         const limit = getArticlesPageLimit(getState());
+
         try {
             const response = await extra.api.get<Article[]>('/articles', {
                 params: {
                     _expand: 'user',
-                    _limit: 'limit',
-                    _page: 'page',
+                    _limit: limit,
+                    _page: page,
                 },
             });
 
