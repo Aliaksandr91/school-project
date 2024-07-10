@@ -22,5 +22,12 @@
   "Comment": "Comment",
   "Send": "Send",
   "Sort By": "Sort By",
-  "Search": "Search"
+  "Search": "Search",
+  "At": "At",
+  "By": "By",
+  "ascending": "ascending",
+  "descending": "descending",
+  "date of creation": "date of creation",
+  "title": "title",
+  "views": "views"
 }

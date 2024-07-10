@@ -51,5 +51,12 @@
   "error": "error",
   "increment": "increment",
   "throw error": "throw error",
-  "toggle": "toggle"
+  "toggle": "toggle",
+  "At": "At",
+  "By": "By",
+  "ascending": "ascending",
+  "descending": "descending",
+  "date of creation": "date of creation",
+  "title": "title",
+  "views": "views"
 }
