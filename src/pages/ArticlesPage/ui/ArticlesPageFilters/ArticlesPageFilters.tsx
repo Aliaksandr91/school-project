@@ -33,21 +33,23 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
     }, [dispatch]);
-    const onChangeSort = useCallback((newOrder: SortOrder) => {
-        dispatch(articlesPageActions.setOrder(newOrder));
-    }, [dispatch]);
-    const onChangeOrder = useCallback((newSort: ArticleSortField) => {
+
+    const onChangeSort = useCallback((newSort: ArticleSortField) => {
         dispatch(articlesPageActions.setSort(newSort));
+    }, [dispatch]);
+
+    const onChangeOrder = useCallback((newOrder: SortOrder) => {
+        dispatch(articlesPageActions.setOrder(newOrder));
     }, [dispatch]);
 
     return (
         <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
             <div className={cls.sortWrapper}>
                 <ArticleSortSelector
-                    sort={}
-                    order={}
-                    onChangeOrder={}
-                    onChangeSort={}
+                    sort={sort}
+                    order={order}
+                    onChangeOrder={onChangeOrder}
+                    onChangeSort={onChangeSort}
                 />
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
             </div>

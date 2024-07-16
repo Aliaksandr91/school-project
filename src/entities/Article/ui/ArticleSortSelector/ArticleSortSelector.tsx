@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { ArticleSortField } from 'entities/Article/model/types/article';
 import { SortOrder } from 'shared/types';
@@ -17,6 +17,10 @@ interface ArticleSortSelectorProps {
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     const {
         className,
+        onChangeOrder,
+        onChangeSort,
+        order,
+        sort,
     } = props;
     const { t } = useTranslation();
     const orderOptions = useMemo<SelectOption[]>(() => [
@@ -45,15 +49,26 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
     ], [t]);
 
+    const changeSortHandler = useCallback((newSort:string) => {
+        onChangeSort(newSort as ArticleSortField);
+    }, [onChangeSort]);
+    const changeOrderHandler = useCallback((newOrder:string) => {
+        onChangeOrder(newOrder as SortOrder);
+    }, [onChangeOrder]);
+
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
             <Select
                 options={sortFieldOptions}
                 label={t('Sort By')}
+                value={sort}
+                onChange={changeSortHandler}
             />
             <Select
                 options={orderOptions}
                 label={t('By')}
+                value={order}
+                onChange={changeOrderHandler}
             />
 
         </div>
