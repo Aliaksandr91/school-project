@@ -11,7 +11,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
 import {
-    getArticlesPageOrder,
+    getArticlesPageOrder, getArticlesPageSearch,
     getArticlesPageSort,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
@@ -29,6 +29,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     const view = useSelector(getArticlesPageView);
     const sort = useSelector(getArticlesPageSort);
     const order = useSelector(getArticlesPageOrder);
+    const search = useSelector(getArticlesPageSearch);
 
     const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
@@ -40,6 +41,10 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const onChangeOrder = useCallback((newOrder: SortOrder) => {
         dispatch(articlesPageActions.setOrder(newOrder));
+    }, [dispatch]);
+
+    const onChangeSearch = useCallback((search: string) => {
+        dispatch(articlesPageActions.setSearch(search));
     }, [dispatch]);
 
     return (
@@ -54,7 +59,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
             </div>
             <Card className={cls.search}>
-                <Input placeholder={t('Search')} />
+                <Input onChange={onChangeSearch} value={search} placeholder={t('Search')} />
             </Card>
         </div>
     );
