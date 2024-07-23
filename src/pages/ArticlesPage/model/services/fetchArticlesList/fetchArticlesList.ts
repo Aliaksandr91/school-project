@@ -8,6 +8,7 @@ import {
     getArticlesPageSort,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { useSelector } from 'react-redux';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 
 interface FetchArticlesListProps {
     replace?: boolean
@@ -27,6 +28,9 @@ export const fetchArticlesList = createAsyncThunk<
         const search = getArticlesPageSearch(getState());
         const page = getArticlesPageNum(getState());
         try {
+            addQueryParams({
+                sort, order, search,
+            });
             const response = await extra.api.get<Article[]>('/articles', {
                 params: {
                     _expand: 'user',
