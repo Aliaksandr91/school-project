@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import {
-    ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector,
+    ArticleSortField, ArticleSortSelector, ArticleTypeTabs, ArticleView, ArticleViewSelector,
 } from 'entities/Article';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -64,30 +64,11 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
         debouncedFetchData();
     }, [dispatch, debouncedFetchData]);
 
-    const onChangeType = useCallback((tab: TabItem) => {
-        dispatch(articlesPageActions.setType(tab.value as ArticleType));
+    const onChangeType = useCallback((value: ArticleType) => {
+        dispatch(articlesPageActions.setType(value));
         dispatch(articlesPageActions.setPage(1));
-        debouncedFetchData();
-    }, [dispatch, debouncedFetchData]);
-
-    const typeTabs = useMemo<TabItem[]>(() => [
-        {
-            value: ArticleType.ALL,
-            content: t('All articles'),
-        },
-        {
-            value: ArticleType.IT,
-            content: t('IT'),
-        },
-        {
-            value: ArticleType.ECONOMICS,
-            content: t('Economics'),
-        },
-        {
-            value: ArticleType.SCIENCE,
-            content: t('Science'),
-        },
-    ], [t]);
+        fetchData();
+    }, [dispatch, fetchData]);
 
     return (
         <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
@@ -103,10 +84,9 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
             <Card className={cls.search}>
                 <Input onChange={onChangeSearch} value={search} placeholder={t('Search')} />
             </Card>
-            <Tabs
-                tabs={typeTabs}
+            <ArticleTypeTabs
                 value={type}
-                onTabClick={onChangeType}
+                onChangeType={onChangeType}
                 className={cls.tabs}
             />
         </div>
