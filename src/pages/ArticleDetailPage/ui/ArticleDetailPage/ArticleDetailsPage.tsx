@@ -18,6 +18,9 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import cls from './ArticleDetailsPage.module.scss';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
+import {
+    articleDetailsPageRecommendationsReducer,
+} from '../../model/slices/articleDetailsPageRecommendationsSlice';
 
 interface ArticleDetailsPageProps {
     className?:string
@@ -25,6 +28,7 @@ interface ArticleDetailsPageProps {
 
 const reducers: ReducersList = {
     articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsRecommendations: articleDetailsPageRecommendationsReducer,
 };
 
 const ArticleDetailsPage = (props:ArticleDetailsPageProps) => {
